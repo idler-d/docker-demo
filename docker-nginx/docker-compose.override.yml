@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  proxy:
+    volumes:
+      - ./conf:/etc/nginx/conf.d
+      - ./auth:/etc/nginx/auth
+      - ./certs:/etc/nginx/certs

@@ -1,0 +1,30 @@
+version: '3.4'
+services:
+  proxy:
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    tty: true
+    stdin_open: true
+    configs:
+      - source: nginx.conf
+        target: /etc/nginx/nginx.conf
+secrets:
+  registry.password:
+    file: ./auth/registry.password
+  domain.crt:
+    file: ./certs/server.crt
+  domain.key:
+    file: ./certs/server.key
+configs:
+  registry.conf:
+    file: ./conf/registry.nginx.conf
+  jenkins.conf:
+    file: ./conf/jenkins.nginx.conf
+  nexus.conf:
+    file: ./conf/nexus.nginx.conf
+  mysql.conf:
+    file: ./conf/mysql.nginx.conf
+  nginx.conf:
+    file: ./conf/nginx.conf

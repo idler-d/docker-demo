@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  jenkins:
+    image: jenkins
+    volumes:
+      - /mnt/hgfs/VMware_data/jenkins-data:/var/jenkins_home
+    tty: true
+    stdin_open: true
+    configs:
+      - source: jenkins.log.conf
+        target: /var/jenkins_home/log.properties
+configs:
+  jenkins.log.conf:
+    file: ./conf/log.properties
