@@ -17,8 +17,7 @@
 
 echo "update registry network, secret and config files to proxy service."
 docker service update -d \
---secret-add source=lb_registry.password,target=/etc/nginx/auth/registry.password \
---secret-add source=lb_domain.crt,target=/etc/nginx/certs/domain.crt \
---secret-add source=lb_domain.key,target=/etc/nginx/certs/domain.key \
---config-add source=lb_registry.conf,target=/etc/nginx/conf.d/registry.nginx.conf \
+--secret-add source=lb_domain.group.crt,target=/etc/nginx/certs/domain.group.crt \
+--secret-add source=lb_domain.group.key,target=/etc/nginx/certs/domain.group.key \
+--config-add source=lb_registry.group.conf,target=/etc/nginx/conf.d/registry.group.nginx.conf \
 lb_proxy

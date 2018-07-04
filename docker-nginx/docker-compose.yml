@@ -14,12 +14,18 @@ secrets:
   registry.password:
     file: ./auth/registry.password
   domain.crt:
-    file: ./certs/server.crt
+    file: ./certs/registry.crt
   domain.key:
-    file: ./certs/server.key
+    file: ./certs/registry.key
+  domain.group.crt:
+    file: ./certs/registry.group.crt
+  domain.group.key:
+    file: ./certs/registry.group.key
 configs:
   registry.conf:
     file: ./conf/registry.nginx.conf
+  registry.group.conf:
+    file: ./conf/registry.group.nginx.conf
   jenkins.conf:
     file: ./conf/jenkins.nginx.conf
   nexus.conf:
