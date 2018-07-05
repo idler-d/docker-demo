@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  redis:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == infrastructure-node

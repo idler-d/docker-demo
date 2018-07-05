@@ -1,0 +1,6 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    volumes:
+       - /mnt/hgfs/VMware_data/redis-data:/data
