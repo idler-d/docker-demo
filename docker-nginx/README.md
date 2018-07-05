@@ -17,8 +17,15 @@
   ./enable-jenkins-proxy.sh
 ```
 
-**四、加入nexus-service配置文件(安装完成jenkins后运行)**
+**四、加入nexus-service配置文件(安装完成nexus后运行)**
 ```
   sudo chmod +x ./enable-nexus-proxy.sh
   ./enable-nexus-proxy.sh
+  #docker registry
+  sudo chmod +x ./enable-registry-proxy.sh
+  ./enable-registry-proxy.sh
+  #docker registry group mirror
+  sudo chmod +x ./enable-registry-group-proxy.sh
+  ./enable-registry-group-proxy.sh
+  
 ```
