@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   jenkins:
-    image: jenkins
+    image: jenkinsci/jenkins
     volumes:
       - /mnt/hgfs/VMware_data/jenkins-data:/var/jenkins_home
     tty: true
