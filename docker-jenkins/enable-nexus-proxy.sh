@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 function uninstall () {
   echo "remove nexus host to registry service."
   docker service update -d \
@@ -16,7 +14,7 @@ function install () {
     jenkins_jenkins
 }
 
-if [ $# -gt 0 -a $1 == "uninstall" ] ; then
+if [[ $# -gt 0 && "$1" == "uninstall" ]] ; then
   uninstall
 else
   uninstall

@@ -32,7 +32,7 @@ function install () {
 }
 
 
-if [ $# -gt 0 -a $1 == "uninstall" ] ; then
+if [[ $# -gt 0 && "$1" == "uninstall" ]] ; then
   uninstall
 else
   uninstall
