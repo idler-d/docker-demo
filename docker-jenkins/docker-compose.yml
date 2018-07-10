@@ -6,6 +6,10 @@ services:
       - /mnt/hgfs/VMware_data/jenkins-data:/var/jenkins_home
     tty: true
     stdin_open: true
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
     configs:
       - source: jenkins.log.conf
         target: /var/jenkins_home/log.properties

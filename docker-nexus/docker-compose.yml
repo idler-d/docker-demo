@@ -6,3 +6,6 @@ services:
       - /mnt/hgfs/VMware_data/nexus-data:/nexus-data
     tty: true
     stdin_open: true
+    restart_policy:
+      condition: on-failure
+      delay: 5s

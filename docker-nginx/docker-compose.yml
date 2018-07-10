@@ -10,6 +10,9 @@ services:
     configs:
       - source: nginx.conf
         target: /etc/nginx/nginx.conf
+    restart_policy:
+      condition: on-failure
+      delay: 5s
 secrets:
   registry.password:
     file: ./auth/registry.password

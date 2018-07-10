@@ -4,3 +4,6 @@ services:
     image: redis
     volumes:
        - /mnt/hgfs/VMware_data/redis-data:/data
+    restart_policy:
+      condition: on-failure
+      delay: 5s
