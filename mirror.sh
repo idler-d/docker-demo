@@ -20,7 +20,7 @@ if [ $# == 1 ] ; then
     master_host="$1 registry.group.idler.com"
     install
   else
-    echo "$1 not a ip"
+    echo "$1 is not a ip"
     exit 0
   fi
 else
