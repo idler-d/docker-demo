@@ -1,9 +1,29 @@
-version: '3'
+version: '3.4'
 services:
-  redis:
+  master:
     image: redis
-    volumes:
-       - /mnt/hgfs/VMware_data/redis-data:/data
-    restart_policy:
-      condition: on-failure
-      delay: 5s
+#    volumes:
+#       - /mnt/hgfs/VMware_data/redis-data:/data
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+  slave:
+    image: redis
+    command: redis-server --slaveof master 6379
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+  sentinel:
+    image: docker-redis-sentinel
+    build: sentinel
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+    environment:
+      - SENTINEL_DOWN_AFTER=5000
+      - SENTINEL_FAILOVER=5000

@@ -1,7 +1,17 @@
-version: '3'
+version: '3.4'
 
 services:
-  redis:
+  master:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == infrastructure-node
+  slave:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == infrastructure-node
+  sentinel:
     deploy:
       placement:
         constraints:
