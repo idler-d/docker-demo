@@ -9,4 +9,4 @@
 ***jenkins作为maven编译、dockerfile-maven插件打包docker镜像、把docker镜像发布到nexus的docker私库***
 ![NONE](img/jenkins_docker.png)
 
-jenkins 容器通过tcp socket连接宿主机docker 服务进行镜像打包
+jenkins 容器通过tcp ssl连接宿主机docker 服务进行镜像打包
