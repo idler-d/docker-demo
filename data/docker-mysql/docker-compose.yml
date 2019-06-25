@@ -10,9 +10,10 @@ services:
       MYSQL_ROOT_PASSWORD: 123456
     tty: true
     stdin_open: true
-    restart_policy:
-      condition: on-failure
-      delay: 5s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
     configs:
       - source: config-file.cnf
         target: /etc/mysql/conf.d/config-file.cnf
