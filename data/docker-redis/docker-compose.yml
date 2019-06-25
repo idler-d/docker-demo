@@ -12,15 +12,17 @@ services:
     image: redis
     command: redis-server --slaveof master 6379
     deploy:
-      replicas: 2
+#      replicas: 2
       restart_policy:
         condition: on-failure
         delay: 5s
   sentinel:
     image: docker-redis-sentinel
     build: sentinel
+    ports:
+      - 26379:26379
     deploy:
-      replicas: 3
+#      replicas: 3
       restart_policy:
         condition: on-failure
         delay: 5s
