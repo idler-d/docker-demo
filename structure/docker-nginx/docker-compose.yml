@@ -33,7 +33,5 @@ configs:
     file: ./conf/jenkins.nginx.conf
   nexus.conf:
     file: ./conf/nexus.nginx.conf
-  mysql.conf:
-    file: ./conf/mysql.nginx.conf
   nginx.conf:
     file: ./conf/nginx.conf
