@@ -1,12 +1,12 @@
 version: '3.4'
 services:
   jenkins:
-    image: jenkinsci/blueocean
+    image: jenkinsci/blueocean:1.19.0
     volumes:
       - /mnt/hgfs/VMware_data/jenkins-data:/var/jenkins_home
-    environment:
-      - DOCKER_HOST=tcp://docker.idler.com:2376
-      - DOCKER_TLS_VERIFY=1
+#    environment:
+#      - DOCKER_HOST=tcp://docker.idler.com:2376
+#      - DOCKER_TLS_VERIFY=1
     tty: true
     stdin_open: true
     deploy:
