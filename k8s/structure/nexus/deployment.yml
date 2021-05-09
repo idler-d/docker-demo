@@ -1,0 +1,29 @@
+# 创建部署
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexus-deployment   # deployment 名称
+spec:
+  replicas: 1              # 副本个数
+  selector:
+    matchLabels:
+      app: nexus
+  template:                # 模版定义
+    metadata:
+      labels:
+        app: nexus         # 模版 label
+    spec:
+      containers:          # 容器定义
+        - name: nexus
+          image: sonatype/nexus3   # 镜像
+          ports:
+            - containerPort: 8081
+          volumeMounts:
+            - mountPath: "/nexus-data"
+              name: nexus-pv
+      volumes:
+        - name: nexus-pv
+          persistentVolumeClaim:
+            claimName: nexus-pv
+#      nodeSelector:                # 节点选择
+#        name: infrastructure-node

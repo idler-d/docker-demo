@@ -1,0 +1,36 @@
+# 创建部署
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment   # deployment 名称
+spec:
+  replicas: 2              # 副本个数
+  selector:
+    matchLabels:
+      app: nginx
+  template:                # 模版定义
+    metadata:
+      labels:
+        app: nginx         # 模版 label
+    spec:
+      containers:          # 容器定义
+      - name: nginx
+        image: nginx:1.19-perl   # 镜像
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx/nginx.conf
+          name: nginx-config
+          subPath: nginx.conf
+        - mountPath: /etc/nginx/conf.d/nexus.nginx.conf
+          name: nginx-nexus-config
+          subPath: nexus.nginx.conf
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: confnginx
+        - name: nginx-nexus-config
+          configMap:
+            name: confnginxfornexus
+#      nodeSelector:                # 节点选择
+#        name: infrastructure-node
